@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="online-ide-embedded.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .java-online {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+        }
+    </style>
+</head>
+
+<body class="joeCssFence">
+    <div id="wrapper" style="width: 100%; height: 100%;">
+        <!-- Der Inhalt wird dynamisch ersetzt -->
+    </div>
+
+    <script type="module">
+        import { OnlineIde } from './online-ide-embedded.js';
+
+        window.javaOnlineDir = "./";
+
+        let currentIde = null;
+
+        function initIDE(code) {
+            const wrapper = document.getElementById('wrapper');
+            wrapper.innerHTML = `
+                <div class="java-online" data-java-online='{"withFileExplorer": false, "withPCode": false, "withConsole": true, "withErrorList": true}'>
+                    <script type="text/java">${code}<\/script>
+                </div>
+            `;
+            // Trigger the IDE to find the new element
+            // In the embedded version, it usually auto-initializes on DOMContentLoaded
+            // Since we are module, we might need to manually trigger or let it find it.
+            // If it doesn't auto-init, we might need to call a method.
+        }
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'loadCode') {
+                initIDE(event.data.code);
+            }
+        });
+
+        // Initial empty state or default
+        initIDE('class Programm {\n    public static void main(String[] args) {\n        System.out.println("Lade...");\n    }\n}');
+    </script>
+</body>
+
+</html>

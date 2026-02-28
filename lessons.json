@@ -1,0 +1,30 @@
+[
+  {
+    "id": "intro",
+    "title": "Was ist ein String?",
+    "theory": "Hallo! Ich bin Ralph! Ein **String** ist wie eine Kette aus Buchstaben. Stell dir vor, du schreibst einen Zettel. Alles, was darauf steht, ist ein String. In Java schreiben wir Strings immer in Anführungszeichen: `\"Hallo Ralph\"`.",
+    "task": "Ändere den Code so, dass Ralph hallo sagt!",
+    "initialCode": "class Programm {\n    public static void main(String[] args) {\n        String name = \"Ralph\";\n        System.out.println(\"Hallo \" + name);\n    }\n}"
+  },
+  {
+    "id": "length",
+    "title": "Wie lang ist mein Finger? (length)",
+    "theory": "Mit `.length()` kannst du zählen, wie viele Zeichen (Buchstaben, Leerzeichen, Punkte) in einem String sind. Ralph hat 5 Finger... glaube ich.",
+    "task": "Gib die Länge des Wortes 'Bananentelefon' aus.",
+    "initialCode": "class Programm {\n    public static void main(String[] args) {\n        String wort = \"Bananentelefon\";\n        int laenge = wort.length();\n        System.out.println(\"Das Wort ist \" + laenge + \" Zeichen lang!\");\n    }\n}"
+  },
+  {
+    "id": "substring",
+    "title": "Ein Stück vom Kuchen (substring)",
+    "theory": "Mit `substring(start, ende)` kannst du Teile aus einem String herausschneiden. Aber Vorsicht: Java fängt bei **0** an zu zählen!",
+    "task": "Schneide das Wort 'Katze' aus dem Satz 'Die Katze ist lieb' heraus.",
+    "initialCode": "class Programm {\n    public static void main(String[] args) {\n        String satz = \"Die Katze ist lieb\";\n        // Katze fängt bei Index 4 an und geht bis 9 (exklusive)\n        String teil = satz.substring(4, 9);\n        System.out.println(teil);\n    }\n}"
+  },
+  {
+    "id": "indexOf",
+    "title": "Wo ist der Fehler? (indexOf)",
+    "theory": "Mit `.indexOf(\"...\")` kannst du suchen, an welcher Stelle ein Wort steht. Wenn es nicht da ist, sagt Java `-1`. Wie traurig.",
+    "task": "Finde heraus, an welcher Stelle das Wort 'Geheimnis' im Satz steht.",
+    "initialCode": "class Programm {\n    public static void main(String[] args) {\n        String botschaft = \"Psst... das ist ein Geheimnis!\";\n        int position = botschaft.indexOf(\"Geheimnis\");\n        System.out.println(\"Gefunden an Position: \" + position);\n    }\n}"
+  }
+]

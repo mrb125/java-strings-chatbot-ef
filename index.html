@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralphs Java-Strings Abenteuer 🍌</title>
+    <!-- iPad / PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <aside>
+        <div class="logo-area">
+            <h1>RALPHS STRINGS</h1>
+            <span class="ralph-quote">"Ich lerne!"</span>
+        </div>
+        <div class="lesson-content" id="lessonArea">
+            <h2 id="lessonTitle">Lade...</h2>
+            <div class="theory-box" id="theoryText">
+                Warte einen Moment, Ralph sucht noch seinen Stift.
+            </div>
+            <div class="task-box" id="taskText">
+                Aufgabe wird geladen...
+            </div>
+        </div>
+        <div class="nav-footer">
+            <button id="prevBtn" onclick="prevLesson()" disabled>Zurück</button>
+            <button id="nextBtn" onclick="nextLesson()">Weiter</button>
+        </div>
+    </aside>
+
+    <main>
+        <div class="ide-container">
+            <!-- IDE wird hier eingebettet -->
+            <iframe id="ideFrame" src="ide/index.html"></iframe>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').then(registration => {
+                    console.log('SW registriert: ', registration.scope);
+                }).catch(err => {
+                    console.log('SW Registrierung fehlgeschlagen: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

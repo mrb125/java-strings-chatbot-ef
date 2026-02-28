@@ -1,0 +1,128 @@
+:root {
+    --primary-color: #FFD100; /* Simpsons Yellow */
+    --secondary-color: #70AD47; /* Grass Green */
+    --accent-color: #ED7D31; /* Orange */
+    --text-color: #333;
+    --bg-color: #FFF9E1;
+    --sidebar-width: 320px;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Styling */
+aside {
+    width: var(--sidebar-width);
+    background: white;
+    border-right: 4px solid var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+}
+
+.logo-area {
+    padding: 20px;
+    background: var(--primary-color);
+    text-align: center;
+}
+
+.logo-area h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.lesson-content {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.lesson-content h2 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.theory-box {
+    background: #fdfdfd;
+    padding: 15px;
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.task-box {
+    background: #eef9ff;
+    padding: 15px;
+    border-left: 5px solid #2eaadc;
+    margin-bottom: 20px;
+}
+
+/* Main Area */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ide-container {
+    flex-grow: 1;
+    border: none;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Navigation */
+.nav-footer {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    border: 2px solid #000;
+    background: var(--primary-color);
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 3px 3px 0 #000;
+    transition: 0.1s;
+}
+
+button:active {
+    box-shadow: 0 0 0 #000;
+    transform: translate(3px, 3px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Ralph Quote Styling */
+.ralph-quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: block;
+    color: #666;
+}
